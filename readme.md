@@ -2,9 +2,9 @@
 
 This application serves as a layer above the IMu API outlines [here](https://emu.kesoftware.com/support/downloads/imu) (Note: login required).  It's purpose is to make the IMu API easier to use and also open it in a REST style API that can be used by other webservers.
 
-## Endpoints
+# Endpoints
 
-####Images
+## Images
 
 url: http://*imu server*/api/images?irn=*irn*
 
