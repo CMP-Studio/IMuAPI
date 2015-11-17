@@ -23,37 +23,36 @@ else
  sendError(400);
 }
 
-$columns = array("multimedia");
+$columns = array("resource");
 
 $terms = array("irn", "$irn");
 try {
   $res = $search->search("emultimedia",$columns,$terms);
 } catch (Exception $e) {
-  //echo "$e";
+  //echo $e;
  sendError(406);
 }
 
-
-if(isset($res->rows[0]["image"]["resource"]))
+if(isset($res->rows[0]["resource"]))
 {
-  $img = $res->rows[0]["image"]["resource"];
+  $media = $res->rows[0]["resource"];
 }
 else
 {
  sendError(404);
 }
-$temp_img = tempnam(sys_get_temp_dir(), 'IMU');
-saveImg($temp_img, $img);
+$temp_file = tempnam(sys_get_temp_dir(), 'IMU');
+saveFile($temp_file, $media);
 
-$fn = $img["identifier"];
-$mime = $img["mimeFormat"];
+$fn = $media["identifier"];
+$mime = $media["mimeType"] . "/" .  $media["mimeFormat"];
 
-sendImage($temp_img,$mime,$fn);
+sendFile($temp_file,$mime,$fn);
 
-function saveImg($newloc, $image)
+function saveFile($newloc, $file)
 {
   // Save a copy of the resource
-  $temp = $image['file'];
+  $temp = $file['file'];
   $copy = fopen( $newloc, 'wb');
   for (;;)
   {
@@ -65,11 +64,10 @@ function saveImg($newloc, $image)
   fclose($copy);
 }
 
-function sendImage($location, $mime, $filename)
+function sendFile($location, $mime, $filename)
 {
-  $mimeFull = "image/$mime";
 
-  header("Content-Type: $mimeFull");
+  header("Content-Type: $mime");
   header("Content-Disposition: attachment; filename=\"$filename\"");
   readfile($location);
 }

@@ -10,7 +10,26 @@ url: http://*imu server*/api/images?irn=*irn*
 
 **Variables**
 
-* irn: The irn of the object you are looking for
+* irn: The irn of the catalog object you are looking for
+
+**Response**
+
+This function responds with an image file if it succeeds or an HTTP ERROR if it fails
+
+**Errors**
+
+* HTTP 503 - Can't connect to IMu server (may be down or configured incorrectly)
+* HTTP 400 - Malformed response (Did you set the IRN?)
+* HTTP 406 - Something happened when trying to find the item
+* HTTP 404 - An object with that IRN could not be found.
+
+## Multimedia
+
+url: http://*imu server*/api/multimedia?irn=*irn*
+
+**Variables**
+
+* irn: The irn of the multimedia object you are looking for
 
 **Response**
 
