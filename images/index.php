@@ -29,6 +29,7 @@ $terms = array("irn", "$irn");
 try {
   $res = $search->search("ecatalogue",$columns,$terms);
 } catch (Exception $e) {
+  //echo "$e";
  sendError(406);
 }
 
@@ -74,6 +75,7 @@ function sendImage($location, $mime, $filename)
 }
 function sendError($code)
 {
-  header('X-PHP-Response-Code: '.$code, true, $code);
+  header($_SERVER["SERVER_PROTOCOL"] . " $code", TRUE, $code);
+  die();
 }
  ?>
