@@ -4,19 +4,19 @@ This application serves as a layer above the IMu API outlines [here](https://emu
 
 ## Endpoints
 
-#### Images
+####Images
 
 url: http://*imu server*/api/images?irn=*irn*
 
-####### Variables:
+**Variables**
 
 * irn: The irn of the object you are looking for
 
-####### Response
+**Response**
 
 This function responds with an image file if it succeeds or an HTTP ERROR if it fails
 
-####### Errors
+**Errors**
 
 * HTTP 503 - Can't connect to IMu server (may be down or configured incorrectly)
 * HTTP 400 - Malformed response (Did you set the IRN?)
