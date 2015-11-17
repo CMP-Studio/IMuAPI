@@ -33,7 +33,7 @@ url: http://*imu server*/api/multimedia?irn=*irn*
 
 **Response**
 
-This function responds with an image file if it succeeds or an HTTP ERROR if it fails
+This function responds with a file if it succeeds or an HTTP ERROR if it fails
 
 **Errors**
 
