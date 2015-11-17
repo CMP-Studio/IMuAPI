@@ -19,7 +19,7 @@ This function responds with an image file if it succeeds or an HTTP ERROR if it 
 **Errors**
 
 * HTTP 503 - Can't connect to IMu server (may be down or configured incorrectly)
-* HTTP 400 - Malformed response (Did you set the IRN?)
+* HTTP 400 - Malformed request (Did you set the IRN?)
 * HTTP 406 - Something happened when trying to find the item
 * HTTP 404 - An object with that IRN could not be found.
 
@@ -38,6 +38,6 @@ This function responds with an image file if it succeeds or an HTTP ERROR if it 
 **Errors**
 
 * HTTP 503 - Can't connect to IMu server (may be down or configured incorrectly)
-* HTTP 400 - Malformed response (Did you set the IRN?)
+* HTTP 400 - Malformed request (Did you set the IRN?)
 * HTTP 406 - Something happened when trying to find the item
 * HTTP 404 - An object with that IRN could not be found.
