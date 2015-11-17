@@ -33,7 +33,7 @@ class imuSearch
     }
     catch (Exception $e)
     {
-      print "Connection error: $e";
+      throw $e;
     }
     return false;
   }
@@ -69,7 +69,7 @@ class imuSearch
     }
     catch (Exception $e)
     {
-      print "Search error: $e";
+      throw $e;
     }
     return null;
 
