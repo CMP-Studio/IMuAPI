@@ -51,7 +51,7 @@ class imuSearch
       {
           $mod->findTerms("irn", "-1", '>'); //Should match everything
       }
-      $itt = 100;
+      $itt = 50;
       //Fetch all
       $bigresult = new stdClass();
       $bigresult->rows = array();
@@ -61,7 +61,6 @@ class imuSearch
         $result = $mod->fetch('start', $offset, $itt, $columns);
         $bigresult->rows = array_merge($bigresult->rows, $result->rows);
         $offset += $itt;
-        print "$offset\n";
 
       } while ($result->count == $itt);
 
